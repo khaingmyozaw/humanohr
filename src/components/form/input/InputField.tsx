@@ -7,17 +7,19 @@ const InputField = ({
     label,
     name,
     id,
+    type,
     placeholder,
     className = '',
 }: InputFieldType) => {
     return (
-        <div className="grid w-full max-w-sm items-center gap-2">
-            <Label htmlFor={id}>{label}</Label>
+        <div className="grid w-full items-center gap-2">
+            <Label htmlFor={id} className='text-neutral-700'>{label}</Label>
             <Input 
+                type={type || 'text'}
                 name={name} 
                 id={id} 
                 placeholder={placeholder} 
-                className={`w-full h-11 px-4 py-2.5 border-gray-300 focus-visible:border-brand-300 focus-visible:ring-brand-300/20 focus-visible:ring-3 ${className}`}
+                className={`w-full h-12 px-4 py-3 border-neutral-300 focus-visible:border-brand-300 focus-visible:ring-brand-300/20 focus-visible:ring-3 ${className}`}
             />
         </div>
     )

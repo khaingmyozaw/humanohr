@@ -1,9 +1,14 @@
 import Image from "next/image";
 
-export default function GridShape() {
+type GridshapeType = {
+  className?: string;
+}
+
+export default function GridShape({ className = '' }: GridshapeType) {
   return (
     <>
-      <div className="absolute right-0 top-0 w-full max-w-[250px] xl:max-w-[450px]">
+      <div
+        className={`absolute right-0 top-0 w-full max-w-[250px] xl:max-w-[450px] ${className}`}>
         <Image
           width={540}
           height={254}
@@ -11,7 +16,8 @@ export default function GridShape() {
           alt="grid"
         />
       </div>
-      <div className="absolute bottom-0 left-0 w-full max-w-[250px] rotate-180 xl:max-w-[450px]">
+      <div
+        className={`absolute bottom-0 left-0 w-full max-w-[250px] rotate-180 xl:max-w-[450px] ${className}`}>
         <Image
           width={540}
           height={254}

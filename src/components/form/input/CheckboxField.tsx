@@ -10,9 +10,9 @@ const CheckboxField = ({
   className = '',
 }: InputFieldType) => {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-1">
       <Checkbox id={id} name={name} className={className} />
-        <Label htmlFor={id}>{label}</Label>
+      <Label htmlFor={id} className='text-neutral-700'>{label}</Label>
     </div>
   )
 }
