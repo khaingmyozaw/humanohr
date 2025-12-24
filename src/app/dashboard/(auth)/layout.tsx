@@ -15,8 +15,8 @@ const AuthLayout = ({
             <div className="relative w-full h-screen flex">
                 <div className="hidden lg:flex w-full h-full lg:w-1/2 p-8 bg-brand-950 overflow-hidden justify-center items-center relative">
                     <GridShape />
-                    <div className="flex max-w-sm flex-col items-center">
-                        <Link href="/" className="mb-4 flex items-center gap-1">
+                    <div className="flex max-w-sm flex-col items-center gap-1">
+                        <Link href="/" className="flex items-center gap-1">
                             <Image
                                 width={60}
                                 height={60}
