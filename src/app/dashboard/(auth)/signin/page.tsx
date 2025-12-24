@@ -1,13 +1,22 @@
+"use client"
+
+import { useState } from 'react'
+import { Eye, EyeOff } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 import GridShape from '@/components/common/GridShape'
 import CheckboxField from '@/components/form/input/CheckboxField'
 import InputField from '@/components/form/input/InputField'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import GoogleIcon from '@/components/icons/google'
 import MicrosoftIcon from '@/components/icons/microsoft'
-import Image from 'next/image'
+import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
 
 const SignIn = () => {
+
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div
       className="relative p-6 sm:p-0 w-full h-full lg:w-1/2 bg-neutral-50"
@@ -49,8 +58,35 @@ const SignIn = () => {
           </p>
         </div>
 
-        <InputField label='Email' name='email' id='email' placeholder='example@gmail.com' />
-        <InputField label='Password' name='password' id='password' type='password' />
+        <InputField label='Email' name='email' id='email' placeholder='hr@company.com' />
+
+        <div className="grid w-full items-center gap-2">
+          <Label htmlFor='password' className='text-neutral-700'>Password</Label>
+          <div className="h-auto relative">
+            <Input
+              type={showPassword ? 'text' : 'password'}
+              name='password'
+              id='password'
+              className='w-full h-12 px-4 py-3 border-neutral-300 focus-visible:border-brand-300 focus-visible:ring-brand-300/20 focus-visible:ring-3'
+            />
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute z-3 -translate-y-1/2 cursor-pointer right-4 top-1/2 "
+            >
+              {showPassword ? (
+                <Eye
+                  size={20}
+                  className="text-neutral-500"
+                />
+              ) : (
+                <EyeOff
+                  size={20}
+                  className="text-neutral-500"
+                />
+              )}
+            </span>
+          </div>
+        </div>
 
         <div
           className="w-full flex justify-between text-neutral-800">

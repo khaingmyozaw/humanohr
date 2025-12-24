@@ -19,7 +19,7 @@ const InputField = ({
                 name={name} 
                 id={id} 
                 placeholder={placeholder} 
-                className={`w-full h-12 px-4 py-3 border-neutral-300 focus-visible:border-brand-300 focus-visible:ring-brand-300/20 focus-visible:ring-3 ${className}`}
+                className={`w-full h-12 px-4 py-3 border-neutral-300 focus-visible:border-brand-300 focus-visible:ring-brand-300/20 focus-visible:ring-3 placeholder:text-neutral-400 ${className}`}
             />
         </div>
     )
