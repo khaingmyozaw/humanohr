@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,14 +17,20 @@ import { Input } from '@/components/ui/input'
 import { Checkbox } from '../ui/checkbox'
 import DatePicker from '../form/datepicker/DatePicker'
 import SelectField from '../form/select/SelectField'
+import { isValid } from 'date-fns'
 
 const SignInForm = () => {
 
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
+    const [password, setPassword] = useState<string>('');
+    const [isValid, setIsValid] = useState<boolean | null>(null);
 
     const valid = getPasswordValidation(password);
+
+    const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        setIsValid(e.target.value === password)
+    }
 
     return (
         <motion.div
@@ -153,7 +159,15 @@ const SignInForm = () => {
                             type={showConfirmPassword ? 'text' : 'password'}
                             name='confirm_password'
                             id='confirm_password'
-                            className='w-full h-12 px-4 py-3 border-neutral-400 focus-visible:border-brand-300 focus-visible:ring-brand-300/20 focus-visible:ring-3'
+                            className={clsx(
+                                'w-full h-12 px-4 py-3 border-neutral-400 focus-visible:border-brand-300 focus-visible:ring-brand-300/20 focus-visible:ring-3',
+                                {
+                                    'focus-visible:border-brand-300 focus-visible:ring-brand-300/20': isValid === null,
+                                    'focus-visible:border-green-500 focus-visible:ring-green-500/20': isValid === true,
+                                    'focus-visible:border-red-500 focus-visible:ring-red-500/20': isValid === false,
+                                }
+                            )}
+                            onChange={handleConfirmPassword}
                         />
                         <motion.span
                             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
