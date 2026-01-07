@@ -35,8 +35,8 @@ const navItems: NavItem[] = [
     icon: <CalenderIcon />,
     name: "Config",
     subItems: [
-      { name: "Departments", path: "/departments", pro: false },
-      { name: "Employees", path: "/employees", pro: false },
+      { name: "Departments", path: "/dashboard/departments", pro: false },
+      { name: "Employees", path: "/dashboard/employees", pro: false },
     ],
   },
   {
