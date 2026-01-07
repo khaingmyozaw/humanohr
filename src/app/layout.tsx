@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.className} antialiased`}
+        className={`${outfit.variable} antialiased`}
       >
         <Analytics />
         <RootProviders>

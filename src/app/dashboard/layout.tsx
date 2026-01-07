@@ -1,18 +1,11 @@
 "use client";
 
 import { StrictMode } from "react";
-import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
-import "../globals.css"
 import { SidebarProvider, useSidebar } from "@/context/SidebarContext";
-import AppSidebar from "@/components/dashboard/layouts/Sidebar";
 import Backdrop from "@/layout/Backdrop";
 import AppHeader from "@/layout/AppHeader";
 import Footer from "@/components/footer/Footer";
-
-const outfit = Outfit({
-    subsets: ["latin"],
-});
+import AppSidebar from "@/layout/Sidebar";
 
 function DashboardContent({
     children,
